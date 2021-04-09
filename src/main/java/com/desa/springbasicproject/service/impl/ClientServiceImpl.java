@@ -26,7 +26,8 @@ public class ClientServiceImpl implements ClientService {
 	@Transactional(readOnly = true)
 	@Override
 	public Client getById(Integer id) {
-		return clientRepository.findById(id).orElse(new Client(0, "", "", 0));
+//		return clientRepository.findById(id).orElseGet(Client::new);
+		return clientRepository.findById(id).orElse(new Client());
 	}
 
 	@Override
